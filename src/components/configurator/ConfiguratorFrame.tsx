@@ -10,19 +10,47 @@ import ConfiguratorVehicleOptions from './ConfiguratorVehicleOptions';
 const ConfiguratorFrame: React.FC = () => {
 
   const api = new CarOptionsApi();
-  //const [data, setData] = useState<CarOptions[]>([]);
+  const [vehicleColors, setVehicleColors] = useState<CarOptions[]>([]);
+  const [vehicleEngines, setVehicleEngines] = useState<CarOptions[]>([]);
+  const [vehicleInteriorOptions, setVehicleInteriorOptions] = useState<CarOptions[]>([]);
+  const [vehicleExteriorOptions, setVehicleExteriorOptions] = useState<CarOptions[]>([]);
 
-  // useEffect(() => {
-  //   api.getVehicleColors().then((responseData) => {
-  //     setData(responseData);
-  //   });
-  // }, []);
+  useEffect(() => {
+    api.getVehicleColors().then((responseData) => { setVehicleColors(responseData) });
+    api.getVehicleEngineOptions().then((responseData) => setVehicleEngines(responseData));
+    api.getVehicleInteriorOptions().then((responseData) => setVehicleInteriorOptions(responseData));
+    api.getVehicleExteriorOptions().then((responseData) => setVehicleExteriorOptions(responseData));
+  }, []);
 
   return (
     <div className="Container">
       <ConfiguratorHeader heading={'Your Volvo V60'} subtitle={'Choose a car model and add equipment, packages and styling to suit your needs.'} />
       <ConfiguratorVehicleView />
-      <ConfiguratorVehicleOptions />
+
+      {/* Colors */}
+      <h3>Colors</h3>
+      {vehicleColors.map(function(object, i){
+        return <ConfiguratorVehicleOptions/>;
+      })}
+      
+      {/* Engines */}
+      <h3>Engines</h3>
+      {vehicleEngines.map(function(object, i){
+        return <ConfiguratorVehicleOptions/>;
+      })}
+
+      {/* Options (external) */}
+      <h3>Exterior Options</h3>
+      {vehicleExteriorOptions.map(function(object, i){
+        return <ConfiguratorVehicleOptions/>;
+      })}
+
+      {/* Options (internal) */}
+      <h3>Interior Options</h3>
+      {vehicleInteriorOptions.map(function(object, i){
+        return <ConfiguratorVehicleOptions/>;
+      })}
+
       <ConfiguratorSummary />
     </div>
   );
