@@ -1,4 +1,4 @@
-import CarOptions from "./CarOptions";
+import CarOptions from "./CarOption";
 
 export const data: CarOptions[] = [
     { id: crypto.randomUUID(), category: 'VehicleColor', title: 'Denim Blue', description: 'text here', cost: 200 },

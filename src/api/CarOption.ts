@@ -1,4 +1,4 @@
-type CarOptions = {
+type CarOption = {
     id: string;
     category: string;
     cost: number;
@@ -6,4 +6,4 @@ type CarOptions = {
     description: string;
   };
 
-export default CarOptions;
+export default CarOption;

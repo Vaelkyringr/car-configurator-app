@@ -1,4 +1,4 @@
-import CarOptions from "./CarOptions";
+import CarOptions from "./CarOption";
 import { data } from './Data';
 
 class CarOptionsApi {
