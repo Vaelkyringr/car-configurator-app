@@ -1,3 +1,4 @@
+import './ConfiguratorVehicleOptions.css';
 import CarOption from "../../api/CarOption";
 
 interface ConfiguratorVehicleOptionsHeaderProps {

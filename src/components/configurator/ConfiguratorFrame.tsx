@@ -29,30 +29,38 @@ const ConfiguratorFrame: React.FC = () => {
 
       {/* Colors */}
       <h3>Colors</h3>
-      {vehicleColors.map(function(option, i){
-        return <ConfiguratorVehicleOptions type={"vehicleColor"} CarOption={option} />;
-      })}
-      
+      <div className="configurator-options-container">
+        {vehicleColors.map(function(option, i){
+          return <ConfiguratorVehicleOptions type={"vehicleColor"} CarOption={option} />;
+        })}
+      </div>
+        
       {/* Engines */}
       <h3>Engines</h3>
-      {vehicleEngines.map(function(option, i){
-        return <ConfiguratorVehicleOptions type={"vehicleEngine"} CarOption={option} />;
-      })}
+      <div className="configurator-options-container">
+        {vehicleEngines.map(function(option, i){
+          return <ConfiguratorVehicleOptions type={"vehicleEngine"} CarOption={option} />;
+        })}
+      </div>
 
       {/* Options (external) */}
       <h3>Exterior Options</h3>
-      {vehicleExteriorOptions.map(function(option, i){
-        return <ConfiguratorVehicleOptions type={"exteriorOption"} CarOption={option} />;
-      })}
+      <div className="configurator-options-container">
+        {vehicleExteriorOptions.map(function(option, i){
+          return <ConfiguratorVehicleOptions type={"exteriorOption"} CarOption={option} />;
+        })}
+      </div>
 
       {/* Options (internal) */}
       <h3>Interior Options</h3>
-      {vehicleInteriorOptions.map(function(option, i){
-        return <ConfiguratorVehicleOptions type={"interiorOption"} CarOption={option} />;
-      })}
+      <div className="configurator-options-container">
+        {vehicleInteriorOptions.map(function(option, i){
+          return <ConfiguratorVehicleOptions type={"interiorOption"} CarOption={option} />;
+        })}
+      </div>
 
-      <ConfiguratorSummary />
-    </div>
+        <ConfiguratorSummary />
+      </div>
   );
 }
 
