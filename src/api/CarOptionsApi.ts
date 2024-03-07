@@ -4,7 +4,7 @@ import { data } from './Data';
 class CarOptionsApi {
 
     // Network delay simulated
-    readonly networkDelay: number = 1000;
+    readonly networkDelay: number = 500;
 
     getVehicleColors() : Promise<CarOptions[]> {
       return new Promise((resolve) => {

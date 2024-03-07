@@ -1,4 +1,6 @@
 .configurator-vehicle-option {
     padding: 20px;
     border: 2px solid #d1d1d1;
+    margin: 5px;
+    cursor: pointer;
 }
