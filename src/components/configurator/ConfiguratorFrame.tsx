@@ -30,25 +30,25 @@ const ConfiguratorFrame: React.FC = () => {
       {/* Colors */}
       <h3>Colors</h3>
       {vehicleColors.map(function(object, i){
-        return <ConfiguratorVehicleOptions/>;
+        return <ConfiguratorVehicleOptions type={"vehicleColor"} />;
       })}
       
       {/* Engines */}
       <h3>Engines</h3>
       {vehicleEngines.map(function(object, i){
-        return <ConfiguratorVehicleOptions/>;
+        return <ConfiguratorVehicleOptions type={"vehicleEngine"} />;
       })}
 
       {/* Options (external) */}
       <h3>Exterior Options</h3>
       {vehicleExteriorOptions.map(function(object, i){
-        return <ConfiguratorVehicleOptions/>;
+        return <ConfiguratorVehicleOptions type={"exteriorOption"} />;
       })}
 
       {/* Options (internal) */}
       <h3>Interior Options</h3>
       {vehicleInteriorOptions.map(function(object, i){
-        return <ConfiguratorVehicleOptions/>;
+        return <ConfiguratorVehicleOptions type={"interiorOption"} />;
       })}
 
       <ConfiguratorSummary />

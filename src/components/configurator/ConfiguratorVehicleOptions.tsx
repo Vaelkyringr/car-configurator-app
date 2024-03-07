@@ -1,7 +1,11 @@
-const ConfiguratorVehicleOptions: React.FC = () => {
+interface ConfiguratorVehicleOptionsHeaderProps {
+  type: string;
+}
+
+const ConfiguratorVehicleOptions: React.FC<ConfiguratorVehicleOptionsHeaderProps> = ({ type }) => {
     return (
       <div>
-        <p> Options goes here </p>
+        <p> Option type {type} goes here </p>
       </div>
     );
   };
