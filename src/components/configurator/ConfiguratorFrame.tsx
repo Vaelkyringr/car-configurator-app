@@ -23,7 +23,7 @@ const ConfiguratorFrame: React.FC = () => {
   }, []);
 
   return (
-    <div className="Container">
+    <div className="configurator-container">
       <ConfiguratorHeader heading={'Your Volvo V60'} subtitle={'Choose a car model and add equipment, packages and styling to suit your needs.'} />
       <ConfiguratorVehicleView />
 

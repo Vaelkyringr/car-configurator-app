@@ -7,7 +7,7 @@ interface ConfiguratorHeaderProps {
 
 const ConfiguratorHeader: React.FC<ConfiguratorHeaderProps> = ({ heading, subtitle }) => {
     return (
-      <div>
+      <div className="configurator-header">
         <h1>{heading}</h1>
         <p>{subtitle}</p>
       </div>

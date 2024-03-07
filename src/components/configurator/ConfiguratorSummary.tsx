@@ -1,6 +1,6 @@
 const ConfiguratorSummary: React.FC = () => {
     return (
-      <div>
+      <div className="configurator-summary">
         <h2>564 000 SEK</h2>
         <p>Some text here describing additional fees.</p>
       </div>

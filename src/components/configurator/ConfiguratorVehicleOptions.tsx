@@ -7,7 +7,7 @@ interface ConfiguratorVehicleOptionsHeaderProps {
 
 const ConfiguratorVehicleOptions: React.FC<ConfiguratorVehicleOptionsHeaderProps> = ({ type, CarOption }) => {
     return (
-      <div>
+      <div className="configurator-vehicle-option">
         <h5>{CarOption.title}</h5>
         <p>{CarOption.description}</p>
         <p>Price: {CarOption.cost}</p>

@@ -1,6 +1,6 @@
 const ConfiguratorVehicleView: React.FC = () => {
     return (
-      <div>
+      <div className="configurator-vehicle-view">
         <p> Image goes here </p>
       </div>
     );
