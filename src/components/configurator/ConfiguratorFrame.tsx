@@ -24,7 +24,7 @@ const ConfiguratorFrame: React.FC = () => {
 
   return (
     <div className="configurator-container">
-      <ConfiguratorHeader heading={'Your Volvo V60'} subtitle={'Choose a car model and add equipment, packages and styling to suit your needs.'} />
+      <ConfiguratorHeader heading={'Your Volvo V60'} subtitle={'Configure your V60 and add equipment, packages and styling to suit your needs.'} />
       <ConfiguratorVehicleView />
 
       {/* Colors */}

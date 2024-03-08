@@ -2,7 +2,7 @@ import './ConfiguratorVehicleOptions.css';
 import CarOption from "../../api/CarOption";
 import React, { useState } from 'react';
 import { useDispatch } from "react-redux";
-import { addToVehiclePrice, subtractFromVehiclePrice } from "../../state/vehiclePrice/vehiclePriceSlice";
+import { addToVehiclePrice, subtractFromVehiclePrice, /*vehicleColorSlice*/ } from "../../state/vehiclePrice/vehiclePriceSlice";
 
 interface ConfiguratorVehicleOptionsHeaderProps {
   type: string;
@@ -13,15 +13,23 @@ const ConfiguratorVehicleOptions: React.FC<ConfiguratorVehicleOptionsHeaderProps
 
     const dispatch = useDispatch();
     const [isToggled, setIsToggled] = useState(false);
-    const divStyle = isToggled ? {border: '2px solid black'} : {};
+    const divStyle = isToggled ? { border: '2px solid black' } : {};
 
     const handleToggle = () => {
-        setIsToggled(!isToggled);
-        if (!isToggled) {
-            dispatch(addToVehiclePrice(CarOption.cost));
-        } else {
-            dispatch(subtractFromVehiclePrice(CarOption.cost));
-        }
+        
+      setIsToggled(!isToggled);
+        
+      if (!isToggled) {
+          dispatch(addToVehiclePrice(CarOption.cost));
+      } else {
+          dispatch(subtractFromVehiclePrice(CarOption.cost));
+      }
+
+      if (type === "vehicleColor") {
+        alert("color is type")
+          //dispatch(setVehicleColor(CarOption.))
+      }
+
     };
 
     return (

@@ -8,7 +8,7 @@ const initialState: VehicleColorState = {
     value: "path/to/file/",
 }
 
-const counterSlice = createSlice({
+const vehicleColorSlice = createSlice({
     name: "VehicleColorState",
     initialState,
     reducers: {
@@ -18,6 +18,6 @@ const counterSlice = createSlice({
     }
 })
 
-export const { setVehicleColor } = counterSlice.actions;
+export const { setVehicleColor } = vehicleColorSlice.actions;
 
-export default counterSlice.reducer;
+export default vehicleColorSlice.reducer;
