@@ -5,7 +5,7 @@ interface VehiclePriceState {
 }
 
 const initialState: VehiclePriceState = {
-    value: 0,
+    value: 520000,
 }
 
 const counterSlice = createSlice({

@@ -1,8 +1,8 @@
 import './ConfiguratorVehicleOptions.css';
 import CarOption from "../../api/CarOption";
-import { useDispatch } from "react-redux";
-import { addToVehiclePrice, subtractFromVehiclePrice } from "../../state/vehicleprice/vehiclePriceSlice";
 import React, { useState } from 'react';
+import { useDispatch } from "react-redux";
+import { addToVehiclePrice, subtractFromVehiclePrice } from "../../state/vehiclePrice/vehiclePriceSlice";
 
 interface ConfiguratorVehicleOptionsHeaderProps {
   type: string;
@@ -28,7 +28,7 @@ const ConfiguratorVehicleOptions: React.FC<ConfiguratorVehicleOptionsHeaderProps
       <div className="configurator-vehicle-option" onClick={handleToggle} style={divStyle}>
         <h5>{CarOption.title}</h5>
         <p>{CarOption.description}</p>
-        <p>Price: {CarOption.cost}</p>
+        <p>{CarOption.cost.toLocaleString('sv-SE')} SEK</p>
       </div>
     );
   };
