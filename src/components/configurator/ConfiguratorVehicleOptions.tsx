@@ -27,7 +27,7 @@ const ConfiguratorVehicleOptions: React.FC<ConfiguratorVehicleOptionsHeaderProps
     return (
       <div className="configurator-vehicle-option" onClick={handleToggle} style={divStyle}>
         <h5>{CarOption.title}</h5>
-        <p>{CarOption.description}</p>
+        <p>{CarOption.icon}</p>
         <p>{CarOption.cost.toLocaleString('sv-SE')} SEK</p>
       </div>
     );
