@@ -1,6 +1,5 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { RootState } from "../../state/store";
-import { addToVehiclePrice, subtractFromVehiclePrice } from "../../state/vehicleprice/vehiclePriceSlice";
 
 const ConfiguratorSummary: React.FC = () => {
 
