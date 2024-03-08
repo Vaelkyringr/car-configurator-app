@@ -1,8 +1,8 @@
 import './ConfiguratorVehicleOptions.css';
 import CarOption from "../../api/CarOption";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../state/store";
-import { increment, decrement, incrementByAmount } from "../../state/counter/counterSlice";
+import { useDispatch } from "react-redux";
+import { addToVehiclePrice, subtractFromVehiclePrice } from "../../state/vehicleprice/vehiclePriceSlice";
+import React, { useState } from 'react';
 
 interface ConfiguratorVehicleOptionsHeaderProps {
   type: string;
@@ -11,18 +11,24 @@ interface ConfiguratorVehicleOptionsHeaderProps {
 
 const ConfiguratorVehicleOptions: React.FC<ConfiguratorVehicleOptionsHeaderProps> = ({ type, CarOption }) => {
 
-    const count = useSelector((state: RootState) => state.counter.value);
     const dispatch = useDispatch();
+    const [isToggled, setIsToggled] = useState(false);
+    const divStyle = isToggled ? {border: '1px solid black'} : {};
+
+    const handleToggle = () => {
+        setIsToggled(!isToggled);
+        if (!isToggled) {
+            dispatch(addToVehiclePrice(CarOption.cost));
+        } else {
+            dispatch(subtractFromVehiclePrice(CarOption.cost));
+        }
+    };
 
     return (
-      <div className="configurator-vehicle-option" /*onClick={onOptionSelectedClick*}*/>
+      <div className="configurator-vehicle-option" onClick={handleToggle} style={divStyle}>
         <h5>{CarOption.title}</h5>
-        <h2>{count}</h2>
         <p>{CarOption.description}</p>
         <p>Price: {CarOption.cost}</p>
-        <button onClick={() => dispatch(increment())}> Increment </button>
-        <button onClick={() => dispatch(incrementByAmount(10))}> Increment by 10 </button>
-        <button onClick={() => dispatch(decrement())}> Decrement </button>
       </div>
     );
   };
