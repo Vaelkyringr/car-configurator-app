@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import { RootState } from "../../state/store";
+import './ConfiguratorSummary.css';
 
 const ConfiguratorSummary: React.FC = () => {
 

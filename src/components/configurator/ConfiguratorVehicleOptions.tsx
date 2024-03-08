@@ -13,7 +13,7 @@ const ConfiguratorVehicleOptions: React.FC<ConfiguratorVehicleOptionsHeaderProps
 
     const dispatch = useDispatch();
     const [isToggled, setIsToggled] = useState(false);
-    const divStyle = isToggled ? {border: '1px solid black'} : {};
+    const divStyle = isToggled ? {border: '2px solid black'} : {};
 
     const handleToggle = () => {
         setIsToggled(!isToggled);
@@ -25,7 +25,7 @@ const ConfiguratorVehicleOptions: React.FC<ConfiguratorVehicleOptionsHeaderProps
     };
 
     return (
-      <div className="configurator-vehicle-option" onClick={handleToggle} style={divStyle}>
+      <div className="configurator-vehicle-option fade-in" onClick={handleToggle} style={divStyle}>
         <h5>{CarOption.title}</h5>
         <p>{CarOption.icon}</p>
         <p>{CarOption.cost.toLocaleString('sv-SE')} SEK</p>
