@@ -4,7 +4,7 @@ import './ConfiguratorSummary.css';
 
 const ConfiguratorSummary: React.FC = () => {
 
-    const vehicleTotalPrice = useSelector((state: RootState) => state.counter.value);
+    const vehicleTotalPrice = useSelector((state: RootState) => state.vehiclePrice.value);
 
     return (
       <div className="configurator-summary">

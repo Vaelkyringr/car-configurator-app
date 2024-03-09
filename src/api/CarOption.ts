@@ -3,7 +3,7 @@ type CarOption = {
     category: string;
     cost: number;
     title: string;
-    icon: string;
+    filename: string;
   };
 
 export default CarOption;

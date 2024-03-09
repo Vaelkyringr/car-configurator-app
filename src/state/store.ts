@@ -1,9 +1,11 @@
 import {configureStore } from "@reduxjs/toolkit";
-import counterReducer from "./vehiclePrice/vehiclePriceSlice";
+import vehiclePriceReducer from "./vehiclePrice/vehiclePriceSlice";
+import vehicleColorReducer from "./vehicleColor/vehicleColorSlice";
 
 export const store = configureStore({
     reducer: {
-        counter: counterReducer
+        vehiclePrice: vehiclePriceReducer,
+        vehicleColor: vehicleColorReducer,
     }
 })
 

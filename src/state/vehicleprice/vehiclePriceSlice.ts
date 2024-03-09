@@ -2,10 +2,12 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 interface VehiclePriceState {
     value: number;
+    isColorAdded: false,
 }
 
 const initialState: VehiclePriceState = {
     value: 520000,
+    isColorAdded: false
 }
 
 const counterSlice = createSlice({
