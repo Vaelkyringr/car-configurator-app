@@ -15,6 +15,9 @@ const ConfiguratorFrame: React.FC = () => {
   const [vehicleInteriorOptions, setVehicleInteriorOptions] = useState<CarOption[]>([]);
   const [vehicleExteriorOptions, setVehicleExteriorOptions] = useState<CarOption[]>([]);
 
+  // test
+  const [selectedOption, setSelectedOption] = useState<string | null>(null);
+
   useEffect(() => {
     api.getVehicleColors().then((responseData) => { setVehicleColors(responseData) });
     api.getVehicleEngineOptions().then((responseData) => setVehicleEngines(responseData));
@@ -43,7 +46,16 @@ const ConfiguratorFrame: React.FC = () => {
       </div>
       <div className="configurator-options-container">
         {vehicleEngines.map(function(option, i){
-          return <ConfiguratorVehicleOptions type={"vehicleEngine"} CarOption={option} key={i} />;
+          // return <ConfiguratorVehicleOptions type={"vehicleEngine"} CarOption={option} key={i} isSelected={selectedOption === option.id} />;
+
+          return   <ConfiguratorVehicleOptions
+          key={option.id}
+          type={"vehicleEngine"}
+          CarOption={option}
+          isSelected={selectedOption === option.id}
+          onSelect={() => setSelectedOption(option.id)}
+        />
+
         })}
       </div>
 
