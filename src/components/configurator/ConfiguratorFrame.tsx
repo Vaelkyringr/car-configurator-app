@@ -43,7 +43,7 @@ const ConfiguratorFrame: React.FC = () => {
       </div>
       <div className="configurator-options-container">
         {vehicleEngines.map(function(option, i){
-          return <ConfiguratorVehicleOptions type={"vehicleEngine"} CarOption={option}/>;
+          return <ConfiguratorVehicleOptions type={"vehicleEngine"} CarOption={option} key={i} />;
         })}
       </div>
 
