@@ -2,8 +2,8 @@ import './ConfiguratorVehicleOptions.css';
 import CarOption from "../../api/CarOption";
 import React, { useState } from 'react';
 import { useDispatch } from "react-redux";
-import { addToVehiclePrice, subtractFromVehiclePrice } from "../../state/vehiclePrice/vehiclePriceSlice";
 import { setVehicleColor, resetVehicleColor } from "../../state/vehicleColor/vehicleColorSlice";
+import { addEngineConfiguration, removeEngineConfiguration } from "../../state/vehicleConfiguration/vehicleConfiguratonSlice";
 import { RootState } from "../../state/store";
 import { useSelector } from "react-redux";
 
@@ -17,20 +17,29 @@ const ConfiguratorVehicleOptions: React.FC<ConfiguratorVehicleOptionsHeaderProps
     const dispatch = useDispatch();
     const [isToggled, setIsToggled] = useState(false);
     const selectedOption = isToggled ? { border: '2px solid #002255' } : {};
+    const engine = useSelector((state: RootState) => state.vehicleConfiguration.value.engine);
 
     const onOptionSelected = () => {
-        
+
       setIsToggled(!isToggled);
 
-      if (!isToggled) {
-          dispatch(addToVehiclePrice(CarOption.cost));
-      } else {
-          dispatch(subtractFromVehiclePrice(CarOption.cost));
-      }
+      switch(type) { 
+        case "vehicleEngine": { 
 
-      if (type === "vehicleColor") {
-        dispatch(setVehicleColor(CarOption.filename));
-      }
+          if (Object.keys(engine).length !== 0) {
+            alert('Engine configuration already exists, please deselect your current choice.');
+            return;
+          }
+
+          if (!isToggled) {
+            dispatch(addEngineConfiguration({ id: CarOption.id, name: CarOption.title, cost: CarOption.cost }));
+          } else {
+            dispatch(removeEngineConfiguration({ id: CarOption.id, name: CarOption.title, cost: CarOption.cost }));
+          }
+
+          break;
+        }
+     }
 
     };
 
