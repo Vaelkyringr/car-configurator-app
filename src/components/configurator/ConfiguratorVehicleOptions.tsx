@@ -25,13 +25,17 @@ const ConfiguratorVehicleOptions: React.FC<ConfiguratorVehicleOptionsHeaderProps
 
       switch(type) { 
         case "vehicleEngine": { 
+          if (Object.keys(engine).length !== 0) {
+            dispatch(removeEngineConfiguration(engine));
+          }
           if (!isSelected) {
             dispatch(addEngineConfiguration({ id: CarOption.id, name: CarOption.title, cost: CarOption.cost }));
-          } else {
-            dispatch(removeEngineConfiguration({ id: CarOption.id, name: CarOption.title, cost: CarOption.cost }));
           }
           break;
+        }
 
+        case "vehicleColor": {
+          
         }
      }
 

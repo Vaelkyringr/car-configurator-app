@@ -31,14 +31,21 @@ const ConfiguratorFrame: React.FC = () => {
       <ConfiguratorVehicleView />
 
       {/* Colors */}
-      {/* <div className="configurator-options-section">
+      <div className="configurator-options-section">
         <h3>Colors</h3>
       </div>
       <div className="configurator-options-container">
         {vehicleColors.map(function(option, i){
-          return <ConfiguratorVehicleOptions type={"vehicleColor"} CarOption={option} />;
+          return <ConfiguratorVehicleOptions
+                                key={option.id}
+                                type={"vehicleColor"}
+                                CarOption={option}
+                                isSelected={selectedOption === option.id}
+                                onSelect={() => setSelectedOption(option.id)}
+        />
+
         })}
-      </div> */}
+      </div>
         
       {/* Engines */}
       <div className="configurator-options-section">
@@ -46,14 +53,12 @@ const ConfiguratorFrame: React.FC = () => {
       </div>
       <div className="configurator-options-container">
         {vehicleEngines.map(function(option, i){
-          // return <ConfiguratorVehicleOptions type={"vehicleEngine"} CarOption={option} key={i} isSelected={selectedOption === option.id} />;
-
-          return   <ConfiguratorVehicleOptions
-          key={option.id}
-          type={"vehicleEngine"}
-          CarOption={option}
-          isSelected={selectedOption === option.id}
-          onSelect={() => setSelectedOption(option.id)}
+          return <ConfiguratorVehicleOptions
+                                key={option.id}
+                                type={"vehicleEngine"}
+                                CarOption={option}
+                                isSelected={selectedOption === option.id}
+                                onSelect={() => setSelectedOption(option.id)}
         />
 
         })}

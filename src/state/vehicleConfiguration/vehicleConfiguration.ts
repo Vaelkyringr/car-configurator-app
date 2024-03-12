@@ -9,4 +9,8 @@ type Engine = {
     cost: number;
 };
 
-export type { Engine, VehicleConfiguration };
+type Color = {
+
+}
+
+export type { Color, Engine, VehicleConfiguration };
