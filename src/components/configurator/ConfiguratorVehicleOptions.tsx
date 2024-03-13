@@ -2,8 +2,7 @@ import './ConfiguratorVehicleOptions.css';
 import CarOption from "../../api/CarOption";
 import React, { useState } from 'react';
 import { useDispatch } from "react-redux";
-import { setVehicleColor, resetVehicleColor } from "../../state/vehicleColor/vehicleColorSlice";
-import { addEngineConfiguration, removeEngineConfiguration } from "../../state/vehicleConfiguration/vehicleConfiguratonSlice";
+import { addEngineConfiguration, removeEngineConfiguration, addColorConfiguration, removeColorConfiguration } from "../../state/vehicleConfiguration/vehicleConfiguratonSlice";
 import { RootState } from "../../state/store";
 import { useSelector } from "react-redux";
 
@@ -17,6 +16,7 @@ const ConfiguratorVehicleOptions: React.FC<ConfiguratorVehicleOptionsHeaderProps
     const dispatch = useDispatch();
     const [isToggled, setIsToggled] = useState(false);
     const engine = useSelector((state: RootState) => state.vehicleConfiguration.value.engine);
+    const color = useSelector((state: RootState) => state.vehicleConfiguration.value.color);
 
     const onOptionSelected = () => {
 
@@ -35,7 +35,13 @@ const ConfiguratorVehicleOptions: React.FC<ConfiguratorVehicleOptionsHeaderProps
         }
 
         case "vehicleColor": {
-          
+          if (Object.keys(color).length !== 0) {
+            dispatch(removeColorConfiguration(color));
+          }
+          if (!isSelected) {
+            dispatch(addColorConfiguration({ id: CarOption.id, name: CarOption.title, cost: CarOption.cost, fileName: CarOption.filename }));
+          }
+          break;
         }
      }
 
