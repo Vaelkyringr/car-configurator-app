@@ -35,9 +35,15 @@ const ConfiguratorVehicleOptions: React.FC<ConfiguratorVehicleOptionsHeaderProps
         }
 
         case "vehicleColor": {
+
+          if (isSelected) {
+            return;
+          }
+
           if (Object.keys(color).length !== 0) {
             dispatch(removeColorConfiguration(color));
           }
+
           if (!isSelected) {
             dispatch(addColorConfiguration({ id: CarOption.id, name: CarOption.title, cost: CarOption.cost, fileName: CarOption.filename }));
           }

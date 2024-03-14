@@ -16,7 +16,8 @@ const ConfiguratorFrame: React.FC = () => {
   const [vehicleExteriorOptions, setVehicleExteriorOptions] = useState<CarOption[]>([]);
 
   // test
-  const [selectedOption, setSelectedOption] = useState<string | null>(null);
+  const [selectedColorOption, setSelectedColorOption] = useState<string | null>(null);
+  const [selectedEngineOption, setSelectedVehicleOption] = useState<string | null>(null);
 
   useEffect(() => {
     api.getVehicleColors().then((responseData) => { setVehicleColors(responseData) });
@@ -40,8 +41,8 @@ const ConfiguratorFrame: React.FC = () => {
                                 key={option.id}
                                 type={"vehicleColor"}
                                 CarOption={option}
-                                isSelected={selectedOption === option.id}
-                                onSelect={() => setSelectedOption(option.id)}
+                                isSelected={selectedColorOption === option.id}
+                                onSelect={() => setSelectedColorOption(option.id)}
         />
 
         })}
@@ -57,8 +58,8 @@ const ConfiguratorFrame: React.FC = () => {
                                 key={option.id}
                                 type={"vehicleEngine"}
                                 CarOption={option}
-                                isSelected={selectedOption === option.id}
-                                onSelect={() => setSelectedOption(option.id)}
+                                isSelected={selectedEngineOption === option.id}
+                                onSelect={() => setSelectedVehicleOption(option.id)}
         />
 
         })}
