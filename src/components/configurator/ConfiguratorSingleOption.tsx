@@ -24,41 +24,42 @@ const ConfiguratorSingleOption: React.FC<ConfiguratorVehicleOptionsHeaderProps &
     setIsToggled(!isToggled);
 
     switch (type) {
-      case "vehicleEngine": {
-        if (Object.keys(engine).length !== 0) {
-          dispatch(removeEngineConfiguration(engine));
-        }
-        if (!isSelected) {
-          dispatch(
-            addEngineConfiguration({
-              id: CarOption.id,
-              name: CarOption.title,
-              cost: CarOption.cost,
-            })
-          );
-        }
+      case "vehicleEngine":
+        handleEngineOption();
         break;
-      }
-
-      case "vehicleColor": {
-        if (isSelected) return;
-
-        if (Object.keys(color).length !== 0) {
-          dispatch(removeColorConfiguration(color));
-        }
-
-        if (!isSelected) {
-          dispatch(
-            addColorConfiguration({
-              id: CarOption.id,
-              name: CarOption.title,
-              cost: CarOption.cost,
-              fileName: CarOption.filename,
-            })
-          );
-        }
+      case "vehicleColor":
+        handleColorOption();
         break;
-      }
+    }
+  };
+
+  const handleEngineOption = () => {
+    if (Object.keys(engine).length !== 0) {
+      dispatch(removeEngineConfiguration(engine));
+    }
+    if (!isSelected) {
+      dispatch(addEngineConfiguration({
+        id: CarOption.id,
+        name: CarOption.title,
+        cost: CarOption.cost,
+      }));
+    }
+  };
+
+  const handleColorOption = () => {
+    if (isSelected) return;
+
+    if (Object.keys(color).length !== 0) {
+      dispatch(removeColorConfiguration(color));
+    }
+
+    if (!isSelected) {
+      dispatch(addColorConfiguration({
+        id: CarOption.id,
+        name: CarOption.title,
+        cost: CarOption.cost,
+        fileName: CarOption.filename,
+      }));
     }
   };
 
