@@ -9,9 +9,7 @@ interface ConfiguratorVehicleOptionsHeaderProps {
   CarOption: CarOption;
 }
 
-const ConfiguratorMultipleOption: React.FC<
-  ConfiguratorVehicleOptionsHeaderProps
-> = ({ CarOption }) => {
+const ConfiguratorMultipleOption: React.FC<ConfiguratorVehicleOptionsHeaderProps> = ({ CarOption }) => {
   const dispatch = useDispatch();
   const [isToggled, setIsToggled] = useState(false);
 
@@ -39,17 +37,10 @@ const ConfiguratorMultipleOption: React.FC<
 
   return (
     <div
-      className="configurator-vehicle-option fade-in"
-      onClick={onOptionSelected}
-    >
+      className="configurator-vehicle-option fade-in" onClick={onOptionSelected} >
       <h5>{CarOption.title}</h5>
       <p>{CarOption.cost.toLocaleString("sv-SE")} SEK</p>
-      <input
-        readOnly
-        className="configurator-vehicle-option-checkbox"
-        type="checkbox"
-        checked={isToggled}
-      />
+      <input readOnly className="configurator-vehicle-option-checkbox" type="checkbox"checked={isToggled} />
     </div>
   );
 };
