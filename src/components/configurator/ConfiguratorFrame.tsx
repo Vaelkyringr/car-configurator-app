@@ -9,23 +9,14 @@ import ConfiguratorSingleOption from "./ConfiguratorSingleOption";
 import ConfiguratorMultipleOption from "./ConfiguratorMultipleOption";
 
 const ConfiguratorFrame: React.FC = () => {
+
   const api = new CarOptionsApi();
   const [vehicleColors, setVehicleColors] = useState<CarOption[]>([]);
   const [vehicleEngines, setVehicleEngines] = useState<CarOption[]>([]);
-  const [vehicleInteriorOptions, setVehicleInteriorOptions] = useState<
-    CarOption[]
-  >([]);
-  const [vehicleExteriorOptions, setVehicleExteriorOptions] = useState<
-    CarOption[]
-  >([]);
-
-  // test
-  const [selectedColorOption, setSelectedColorOption] = useState<string | null>(
-    null
-  );
-  const [selectedEngineOption, setSelectedVehicleOption] = useState<
-    string | null
-  >(null);
+  const [vehicleInteriorOptions, setVehicleInteriorOptions] = useState<CarOption[]>([]);
+  const [vehicleExteriorOptions, setVehicleExteriorOptions] = useState<CarOption[]>([]);
+  const [selectedColorOption, setSelectedColorOption] = useState<string | null>(null);
+  const [selectedEngineOption, setSelectedVehicleOption] = useState<string | null>(null);
 
   useEffect(() => {
     api.getVehicleColors().then((responseData) => {
@@ -44,12 +35,14 @@ const ConfiguratorFrame: React.FC = () => {
 
   return (
     <div className="configurator-container">
+
+      {/*Configurator header */}
       <ConfiguratorHeader
         heading={"Your Volvo V60"}
-        subtitle={
-          "Configure your V60 and add equipment, packages and styling to suit your needs."
-        }
+        subtitle={ "Configure your V60 and add equipment, packages and styling to suit your needs."}
       />
+
+      {/* Vehicle image */}
       <ConfiguratorVehicleView />
 
       {/* Colors */}
@@ -57,7 +50,7 @@ const ConfiguratorFrame: React.FC = () => {
         <h3>Colors</h3>
       </div>
       <div className="configurator-options-container">
-        {vehicleColors.map(function (option, i) {
+        {vehicleColors.map(function (option) {
           return (
             <ConfiguratorSingleOption
               key={option.id}
@@ -75,7 +68,7 @@ const ConfiguratorFrame: React.FC = () => {
         <h3>Engines</h3>
       </div>
       <div className="configurator-options-container">
-        {vehicleEngines.map(function (option, i) {
+        {vehicleEngines.map(function (option) {
           return (
             <ConfiguratorSingleOption
               key={option.id}
@@ -93,9 +86,10 @@ const ConfiguratorFrame: React.FC = () => {
         <h3>Exterior Options</h3>
       </div>
       <div className="configurator-options-container">
-        {vehicleExteriorOptions.map(function (option, i) {
+        {vehicleExteriorOptions.map(function (option) {
           return (
             <ConfiguratorMultipleOption
+              key={option.id}
               type={"exteriorOption"}
               CarOption={option}
             />
@@ -108,9 +102,10 @@ const ConfiguratorFrame: React.FC = () => {
         <h3>Interior Options</h3>
       </div>
       <div className="configurator-options-container">
-        {vehicleInteriorOptions.map(function (option, i) {
+        {vehicleInteriorOptions.map(function (option) {
           return (
             <ConfiguratorMultipleOption
+              key={option.id}
               type={"interiorOption"}
               CarOption={option}
             />

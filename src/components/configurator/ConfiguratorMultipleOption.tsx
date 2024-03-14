@@ -48,6 +48,7 @@ const ConfiguratorMultipleOption: React.FC<
       <h5>{CarOption.title}</h5>
       <p>{CarOption.cost.toLocaleString("sv-SE")} SEK</p>
       <input
+        readOnly
         className="configurator-vehicle-option-checkbox"
         type="checkbox"
         checked={isToggled}
