@@ -2,10 +2,7 @@ import "./ConfiguratorMultipleOption.css";
 import CarOption from "../../api/CarOption";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import {
-  addExteriorOptionConfiguration,
-  removeExteriorOptionConfiguration,
-} from "../../state/vehicleConfiguration/vehicleConfiguratonSlice";
+import { addExteriorOptionConfiguration, removeExteriorOptionConfiguration } from "../../state/vehicleConfiguration/vehicleConfiguratonSlice";
 
 interface ConfiguratorVehicleOptionsHeaderProps {
   type: string;

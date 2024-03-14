@@ -19,18 +19,10 @@ const ConfiguratorFrame: React.FC = () => {
   const [selectedEngineOption, setSelectedVehicleOption] = useState<string | null>(null);
 
   useEffect(() => {
-    api.getVehicleColors().then((responseData) => {
-      setVehicleColors(responseData);
-    });
-    api
-      .getVehicleEngineOptions()
-      .then((responseData) => setVehicleEngines(responseData));
-    api
-      .getVehicleInteriorOptions()
-      .then((responseData) => setVehicleInteriorOptions(responseData));
-    api
-      .getVehicleExteriorOptions()
-      .then((responseData) => setVehicleExteriorOptions(responseData));
+    api.getVehicleColors().then((responseData) => setVehicleColors(responseData));
+    api.getVehicleEngineOptions().then((responseData) => setVehicleEngines(responseData));
+    api.getVehicleInteriorOptions().then((responseData) => setVehicleInteriorOptions(responseData));
+    api.getVehicleExteriorOptions().then((responseData) => setVehicleExteriorOptions(responseData));
   }, []);
 
   return (
