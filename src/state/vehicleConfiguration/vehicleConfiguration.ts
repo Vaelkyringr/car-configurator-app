@@ -1,8 +1,8 @@
 type VehicleConfiguration = {
     color: Color;
     engine: Engine;
-    interiorOptions: InteriorOptions[],
-    exteriorOptions: ExteriorOptions[],
+    interiorOptions: InteriorOption[],
+    exteriorOptions: ExteriorOption[],
     totalCost: number;
 };
 
@@ -19,16 +19,16 @@ type Color = {
     fileName: string;
 }
 
-type InteriorOptions = {
+type InteriorOption = {
     id: string
     name: string;
     cost: number;
 }
 
-type ExteriorOptions = {
+type ExteriorOption = {
     id: string
     name: string;
     cost: number;
 }
 
-export type { Color, Engine, VehicleConfiguration };
+export type { VehicleConfiguration, Color, Engine, InteriorOption, ExteriorOption };

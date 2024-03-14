@@ -5,7 +5,8 @@ import CarOptionsApi from "../../api/CarOptionsApi";
 import ConfiguratorHeader from './ConfiguratorHeader';
 import ConfiguratorSummary from './ConfiguratorSummary';
 import ConfiguratorVehicleView from './ConfiguratorVehicleView';
-import ConfiguratorVehicleOptions from './ConfiguratorVehicleOptions';
+import ConfiguratorSingleOption from './ConfiguratorSingleOption';
+import ConfiguratorMultipleOption from './ConfiguratorMultipleOption';
 
 const ConfiguratorFrame: React.FC = () => {
 
@@ -37,13 +38,13 @@ const ConfiguratorFrame: React.FC = () => {
       </div>
       <div className="configurator-options-container">
         {vehicleColors.map(function(option, i){
-          return <ConfiguratorVehicleOptions
+          return <ConfiguratorSingleOption
                                 key={option.id}
                                 type={"vehicleColor"}
                                 CarOption={option}
                                 isSelected={selectedColorOption === option.id}
                                 onSelect={() => setSelectedColorOption(option.id)}
-        />
+                                />
 
         })}
       </div>
@@ -54,36 +55,36 @@ const ConfiguratorFrame: React.FC = () => {
       </div>
       <div className="configurator-options-container">
         {vehicleEngines.map(function(option, i){
-          return <ConfiguratorVehicleOptions
+          return <ConfiguratorSingleOption
                                 key={option.id}
                                 type={"vehicleEngine"}
                                 CarOption={option}
                                 isSelected={selectedEngineOption === option.id}
                                 onSelect={() => setSelectedVehicleOption(option.id)}
-        />
+                                />
 
         })}
       </div>
 
       {/* Options (external) */}
-      {/* <div className="configurator-options-section">
+      <div className="configurator-options-section">
         <h3>Exterior Options</h3>
       </div>
       <div className="configurator-options-container">
         {vehicleExteriorOptions.map(function(option, i){
-          return <ConfiguratorVehicleOptions type={"exteriorOption"} CarOption={option} />;
+          return <ConfiguratorMultipleOption type={"exteriorOption"} CarOption={option} />;
         })}
-      </div> */}
+      </div>
 
       {/* Options (internal) */}
-      {/* <div className="configurator-options-section">
+      <div className="configurator-options-section">
         <h3>Interior Options</h3>
       </div>
       <div className="configurator-options-container">
         {vehicleInteriorOptions.map(function(option, i){
-          return <ConfiguratorVehicleOptions type={"interiorOption"} CarOption={option} />;
+          return <ConfiguratorMultipleOption type={"interiorOption"} CarOption={option} />;
         })}
-      </div> */}
+      </div>
 
         <ConfiguratorSummary />
       </div>

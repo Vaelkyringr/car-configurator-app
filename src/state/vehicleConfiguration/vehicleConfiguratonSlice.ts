@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { VehicleConfiguration, Engine, Color } from './vehicleConfiguration';
+import { VehicleConfiguration, Engine, Color, InteriorOption, ExteriorOption } from './vehicleConfiguration';
 
 interface VehicleConfigurationState {
     value: VehicleConfiguration;
@@ -8,6 +8,8 @@ interface VehicleConfigurationState {
 const initialState: VehicleConfigurationState = {
     value: {
         engine: {} as Engine,
+        interiorOptions: [] as InteriorOption[],
+        exteriorOptions: [] as ExteriorOption[],
         color: { fileName: "v60_default.png", cost: 0 } as Color,
         totalCost: 520000
     },
@@ -33,10 +35,28 @@ const vehicleConfigurationSlice = createSlice({
         removeColorConfiguration: (state, action: PayloadAction<Color>) => {
             state.value.color = {} as Color;
             state.value.totalCost -= action.payload.cost;
+        },
+        addExteriorOptionConfiguration: (state, action: PayloadAction<ExteriorOption>) => {
+            state.value.exteriorOptions.push(action.payload)
+            state.value.totalCost += action.payload.cost;
+        },
+        removeExteriorOptionConfiguration: (state, action: PayloadAction<ExteriorOption>) => {
+            const index = state.value.exteriorOptions.findIndex(option => option.id === action.payload.id);
+            if (index !== -1) {
+                state.value.exteriorOptions.splice(index, 1);
+                state.value.totalCost -= action.payload.cost;
+            }
         }
     }
 })
 
-export const { addEngineConfiguration, removeEngineConfiguration, addColorConfiguration, removeColorConfiguration } = vehicleConfigurationSlice.actions;
+export const { 
+    addEngineConfiguration, 
+    removeEngineConfiguration, 
+    addColorConfiguration, 
+    removeColorConfiguration,
+    addExteriorOptionConfiguration,
+    removeExteriorOptionConfiguration
+ } = vehicleConfigurationSlice.actions;
 
 export default vehicleConfigurationSlice.reducer;

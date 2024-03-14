@@ -1,4 +1,4 @@
-import './ConfiguratorVehicleOptions.css';
+import './ConfiguratorSingleOption.css';
 import CarOption from "../../api/CarOption";
 import React, { useState } from 'react';
 import { useDispatch } from "react-redux";
@@ -11,7 +11,7 @@ interface ConfiguratorVehicleOptionsHeaderProps {
   CarOption: CarOption;
 }
 
-const ConfiguratorVehicleOptions: React.FC<ConfiguratorVehicleOptionsHeaderProps & { isSelected: boolean; onSelect: () => void }> = ({ type, CarOption, isSelected, onSelect }) => {
+const ConfiguratorSingleOption: React.FC<ConfiguratorVehicleOptionsHeaderProps & { isSelected: boolean; onSelect: () => void }> = ({ type, CarOption, isSelected, onSelect }) => {
 
     const dispatch = useDispatch();
     const [isToggled, setIsToggled] = useState(false);
@@ -36,9 +36,7 @@ const ConfiguratorVehicleOptions: React.FC<ConfiguratorVehicleOptionsHeaderProps
 
         case "vehicleColor": {
 
-          if (isSelected) {
-            return;
-          }
+          if (isSelected) return;
 
           if (Object.keys(color).length !== 0) {
             dispatch(removeColorConfiguration(color));
@@ -62,4 +60,4 @@ const ConfiguratorVehicleOptions: React.FC<ConfiguratorVehicleOptionsHeaderProps
     );
   };
 
-export default ConfiguratorVehicleOptions;
+export default ConfiguratorSingleOption;
