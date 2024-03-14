@@ -1,14 +1,14 @@
 .configurator-vehicle-option {
-    padding: 20px;
-    border: 2px solid #d1d1d1;
-    margin: 5px;
-    cursor: pointer;
+  padding: 20px;
+  border: 2px solid #d1d1d1;
+  margin: 5px;
+  cursor: pointer;
 }
 
 .configurator-vehicle-option:hover {
-    border: 2px solid #ababab;
+  border: 2px solid #ababab;
 }
 
 .configurator-vehicle-option-checkbox {
-    cursor: pointer;
+  cursor: pointer;
 }

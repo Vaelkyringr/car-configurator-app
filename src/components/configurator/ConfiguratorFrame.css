@@ -1,8 +1,8 @@
 .configurator-options-container {
-    display: flex;
-    justify-content: center;
-  }
+  display: flex;
+  justify-content: center;
+}
 
-  .configurator-options-section {
-    margin: 30px 0px 30px 0;
-  }
+.configurator-options-section {
+  margin: 30px 0px 30px 0;
+}

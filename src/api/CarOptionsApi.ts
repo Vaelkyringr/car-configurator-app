@@ -1,35 +1,47 @@
 import CarOptions from "./CarOption";
-import { data } from './Data';
+import { data } from "./Data";
 
 class CarOptionsApi {
+  // Network delay simulated
+  readonly networkDelay: number = 500;
 
-    // Network delay simulated
-    readonly networkDelay: number = 500;
+  getVehicleColors(): Promise<CarOptions[]> {
+    return new Promise((resolve) => {
+      setTimeout(
+        () => resolve(data.filter((item) => item.category === "VehicleColor")),
+        this.networkDelay
+      );
+    });
+  }
 
-    getVehicleColors() : Promise<CarOptions[]> {
-      return new Promise((resolve) => {
-        setTimeout(() => resolve(data.filter(item => item.category === "VehicleColor")), this.networkDelay)
-      })
-    }
+  getVehicleEngineOptions(): Promise<CarOptions[]> {
+    return new Promise((resolve) => {
+      setTimeout(
+        () => resolve(data.filter((item) => item.category === "Engine")),
+        this.networkDelay
+      );
+    });
+  }
 
-    getVehicleEngineOptions() : Promise<CarOptions[]> {
-      return new Promise((resolve) => {
-        setTimeout(() => resolve(data.filter(item => item.category === "Engine")), this.networkDelay)
-      })
-    }
+  getVehicleInteriorOptions(): Promise<CarOptions[]> {
+    return new Promise((resolve) => {
+      setTimeout(
+        () =>
+          resolve(data.filter((item) => item.category === "InteriorOptions")),
+        this.networkDelay
+      );
+    });
+  }
 
-    getVehicleInteriorOptions() : Promise<CarOptions[]> {
-      return new Promise((resolve) => {
-        setTimeout(() => resolve(data.filter(item => item.category === "InteriorOptions")), this.networkDelay)
-      })
-    }
-
-    getVehicleExteriorOptions() : Promise<CarOptions[]> {
-      return new Promise((resolve) => {
-        setTimeout(() => resolve(data.filter(item => item.category === "ExteriorOptions")), this.networkDelay)
-      })
-    }
-
+  getVehicleExteriorOptions(): Promise<CarOptions[]> {
+    return new Promise((resolve) => {
+      setTimeout(
+        () =>
+          resolve(data.filter((item) => item.category === "ExteriorOptions")),
+        this.networkDelay
+      );
+    });
+  }
 }
-  
+
 export default CarOptionsApi;
