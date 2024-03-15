@@ -10,6 +10,7 @@ interface ConfiguratorVehicleOptionsHeaderProps {
 }
 
 const ConfiguratorMultipleOption: React.FC<ConfiguratorVehicleOptionsHeaderProps> = ({ CarOption }) => {
+  
   const dispatch = useDispatch();
   const [isToggled, setIsToggled] = useState(false);
 

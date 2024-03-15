@@ -2,9 +2,8 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../state/store";
 
 const ConfiguratorVehicleView: React.FC = () => {
-  const vehicleColor = useSelector(
-    (state: RootState) => state.vehicleConfiguration.value.color.fileName
-  );
+  
+  const vehicleColor = useSelector((state: RootState) => state.vehicleConfiguration.value.color.fileName);
 
   return (
     <div className="configurator-vehicle-view fade-in">
