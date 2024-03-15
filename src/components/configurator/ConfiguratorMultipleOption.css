@@ -6,8 +6,8 @@
   cursor: pointer;
 }
 
-.configurator-vehicle-option:hover {
-  border: 2px solid #ababab;
+.configurator-vehicle-multiple-option:hover {
+  border: 2px solid #999999;
 }
 
 .configurator-vehicle-option-checkbox {

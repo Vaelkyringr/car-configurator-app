@@ -41,7 +41,7 @@ const ConfiguratorMultipleOption: React.FC<ConfiguratorVehicleOptionsHeaderProps
     <div className="configurator-vehicle-multiple-option fade-in" onClick={onOptionSelected} style={style}>
       <h5>{CarOption.title}</h5>
       <p>{CarOption.cost.toLocaleString("de-DE")} EUR</p>
-      <input readOnly className="configurator-vehicle-option-checkbox" type="checkbox"checked={isToggled} />
+      <input readOnly className="configurator-vehicle-option-checkbox" type="checkbox" checked={isToggled}/>
     </div>
   );
 };

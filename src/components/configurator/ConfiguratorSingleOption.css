@@ -5,3 +5,7 @@
   margin: 5px;
   cursor: pointer;
 }
+
+.configurator-vehicle-single-option:hover {
+  border: 2px solid #999999;
+}
