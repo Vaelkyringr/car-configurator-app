@@ -1,5 +1,6 @@
-.configurator-vehicle-option {
+.configurator-vehicle-multiple-option {
   padding: 20px;
+  width: 120px;
   border: 2px solid #d1d1d1;
   margin: 5px;
   cursor: pointer;

@@ -11,7 +11,7 @@ const initialState: VehicleConfigurationState = {
     interiorOptions: [] as InteriorOption[],
     exteriorOptions: [] as ExteriorOption[],
     color: { fileName: "v60_default.png", cost: 0 } as Color,
-    totalCost: 520000,
+    totalCost: 52000,
   },
 };
 

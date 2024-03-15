@@ -18,6 +18,7 @@ const ConfiguratorSingleOption: React.FC<ConfiguratorVehicleOptionsHeaderProps &
   const [isToggled, setIsToggled] = useState(false);
   const engine = useSelector((state: RootState) => state.vehicleConfiguration.value.engine);
   const color = useSelector((state: RootState) => state.vehicleConfiguration.value.color);
+  const style = isSelected ? { border: '2px solid #898989' } : {};
 
   const onOptionSelected = () => {
     onSelect();
@@ -64,7 +65,7 @@ const ConfiguratorSingleOption: React.FC<ConfiguratorVehicleOptionsHeaderProps &
   };
 
   return (
-    <div className="configurator-vehicle-option fade-in" onClick={onOptionSelected}>
+    <div className="configurator-vehicle-single-option fade-in" onClick={onOptionSelected} style={style}>
       <h5>{CarOption.title}</h5>
       <p>{CarOption.cost.toLocaleString("de-DE")} EUR</p>
       <input type="radio" checked={isSelected} readOnly />

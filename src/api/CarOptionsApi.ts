@@ -24,25 +24,16 @@ class CarOptionsApi {
     });
   }
 
-  getVehicleInteriorOptions(): Promise<CarOptions[]> {
+  getVehicleOptions(): Promise<CarOptions[]> {
     return new Promise((resolve) => {
       setTimeout(
         () =>
-          resolve(data.filter((item) => item.category === "InteriorOptions")),
+          resolve(data.filter((item) => item.category === "Option")),
         this.networkDelay
       );
     });
   }
 
-  getVehicleExteriorOptions(): Promise<CarOptions[]> {
-    return new Promise((resolve) => {
-      setTimeout(
-        () =>
-          resolve(data.filter((item) => item.category === "ExteriorOptions")),
-        this.networkDelay
-      );
-    });
-  }
 }
 
 export default CarOptionsApi;

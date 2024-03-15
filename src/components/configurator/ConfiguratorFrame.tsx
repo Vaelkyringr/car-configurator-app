@@ -13,16 +13,14 @@ const ConfiguratorFrame: React.FC = () => {
   const api = new CarOptionsApi();
   const [vehicleColors, setVehicleColors] = useState<CarOption[]>([]);
   const [vehicleEngines, setVehicleEngines] = useState<CarOption[]>([]);
-  const [vehicleInteriorOptions, setVehicleInteriorOptions] = useState<CarOption[]>([]);
-  const [vehicleExteriorOptions, setVehicleExteriorOptions] = useState<CarOption[]>([]);
+  const [vehicleOptions, setVehicleOptions] = useState<CarOption[]>([]);
   const [selectedColorOption, setSelectedColorOption] = useState<string | null>(null);
   const [selectedEngineOption, setSelectedVehicleOption] = useState<string | null>(null);
 
   useEffect(() => {
     api.getVehicleColors().then((responseData) => setVehicleColors(responseData));
     api.getVehicleEngineOptions().then((responseData) => setVehicleEngines(responseData));
-    api.getVehicleInteriorOptions().then((responseData) => setVehicleInteriorOptions(responseData));
-    api.getVehicleExteriorOptions().then((responseData) => setVehicleExteriorOptions(responseData));
+    api.getVehicleOptions().then((responseData) => setVehicleOptions(responseData));
   }, []);
 
   return (
@@ -75,30 +73,14 @@ const ConfiguratorFrame: React.FC = () => {
 
       {/* Options (external) */}
       <div className="configurator-options-section">
-        <h3>Exterior Options</h3>
+        <h3>Options</h3>
       </div>
       <div className="configurator-options-container">
-        {vehicleExteriorOptions.map(function (option) {
+        {vehicleOptions.map(function (option) {
           return (
             <ConfiguratorMultipleOption
               key={option.id}
-              type={"exteriorOption"}
-              CarOption={option}
-            />
-          );
-        })}
-      </div>
-
-      {/* Options (internal) */}
-      <div className="configurator-options-section">
-        <h3>Interior Options</h3>
-      </div>
-      <div className="configurator-options-container">
-        {vehicleInteriorOptions.map(function (option) {
-          return (
-            <ConfiguratorMultipleOption
-              key={option.id}
-              type={"interiorOption"}
+              type={"Option"}
               CarOption={option}
             />
           );
