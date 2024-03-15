@@ -66,7 +66,7 @@ const ConfiguratorSingleOption: React.FC<ConfiguratorVehicleOptionsHeaderProps &
   return (
     <div className="configurator-vehicle-option fade-in" onClick={onOptionSelected}>
       <h5>{CarOption.title}</h5>
-      <p>{CarOption.cost.toLocaleString("sv-SE")} SEK</p>
+      <p>{CarOption.cost.toLocaleString("de-DE")} EUR</p>
       <input type="radio" checked={isSelected} readOnly />
     </div>
   );

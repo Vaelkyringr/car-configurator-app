@@ -2,6 +2,7 @@ import CarOptions from "./CarOption";
 import { data } from "./Data";
 
 class CarOptionsApi {
+  
   // Network delay simulated
   readonly networkDelay: number = 500;
 
