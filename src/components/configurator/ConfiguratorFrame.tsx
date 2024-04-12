@@ -8,7 +8,7 @@ import ConfiguratorVehicleView from "./ConfiguratorVehicleView";
 import ConfiguratorSingleOption from "./ConfiguratorSingleOption";
 import ConfiguratorMultipleOption from "./ConfiguratorMultipleOption";
 
-const ConfiguratorFrame: React.FC = () => {
+const ConfiguratorFrame = () => {
   const api = new CarOptionsApi();
   const [vehicleColors, setVehicleColors] = useState<CarOption[]>([]);
   const [vehicleEngines, setVehicleEngines] = useState<CarOption[]>([]);

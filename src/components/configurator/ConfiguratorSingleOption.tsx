@@ -4,21 +4,38 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { RootState } from "../../state/store";
 import { useSelector } from "react-redux";
-import { addEngineConfiguration, removeEngineConfiguration, addColorConfiguration, removeColorConfiguration } from "../../state/vehicleConfiguration/vehicleConfiguratonSlice";
+import {
+  addEngineConfiguration,
+  removeEngineConfiguration,
+  addColorConfiguration,
+  removeColorConfiguration,
+} from "../../state/vehicleConfiguration/vehicleConfiguratonSlice";
 
 interface ConfiguratorVehicleOptionsHeaderProps {
   type: string;
   CarOption: CarOption;
 }
 
-const ConfiguratorSingleOption: React.FC<ConfiguratorVehicleOptionsHeaderProps & { isSelected: boolean; onSelect: () => void; }> 
-= ({ type, CarOption, isSelected, onSelect }) => {
-
+const ConfiguratorSingleOption = ({
+  type,
+  CarOption,
+  isSelected,
+  onSelect,
+}: ConfiguratorVehicleOptionsHeaderProps & {
+  isSelected: boolean;
+  onSelect: () => void;
+}) => {
   const dispatch = useDispatch();
   const [isToggled, setIsToggled] = useState(false);
-  const engine = useSelector((state: RootState) => state.vehicleConfiguration.value.engine);
-  const color = useSelector((state: RootState) => state.vehicleConfiguration.value.color);
-  const style = isSelected ? { border: '2px solid #898989' } : {};
+  const style = isSelected ? { border: "2px solid #898989" } : {};
+
+  const engine = useSelector(
+    (state: RootState) => state.vehicleConfiguration.value.engine
+  );
+
+  const color = useSelector(
+    (state: RootState) => state.vehicleConfiguration.value.color
+  );
 
   const onOptionSelected = () => {
     onSelect();
@@ -39,11 +56,13 @@ const ConfiguratorSingleOption: React.FC<ConfiguratorVehicleOptionsHeaderProps &
       dispatch(removeEngineConfiguration(engine));
     }
     if (!isSelected) {
-      dispatch(addEngineConfiguration({
-        id: CarOption.id,
-        name: CarOption.title,
-        cost: CarOption.cost,
-      }));
+      dispatch(
+        addEngineConfiguration({
+          id: CarOption.id,
+          name: CarOption.title,
+          cost: CarOption.cost,
+        })
+      );
     }
   };
 
@@ -55,17 +74,23 @@ const ConfiguratorSingleOption: React.FC<ConfiguratorVehicleOptionsHeaderProps &
     }
 
     if (!isSelected) {
-      dispatch(addColorConfiguration({
-        id: CarOption.id,
-        name: CarOption.title,
-        cost: CarOption.cost,
-        fileName: CarOption.filename,
-      }));
+      dispatch(
+        addColorConfiguration({
+          id: CarOption.id,
+          name: CarOption.title,
+          cost: CarOption.cost,
+          fileName: CarOption.filename,
+        })
+      );
     }
   };
 
   return (
-    <div className="configurator-vehicle-single-option fade-in" onClick={onOptionSelected} style={style}>
+    <div
+      className="configurator-vehicle-single-option fade-in"
+      onClick={onOptionSelected}
+      style={style}
+    >
       <h5>{CarOption.title}</h5>
       <p>{CarOption.cost.toLocaleString("de-DE")} EUR</p>
       <input type="radio" checked={isSelected} readOnly />

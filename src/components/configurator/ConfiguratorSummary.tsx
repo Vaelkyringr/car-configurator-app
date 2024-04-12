@@ -1,10 +1,11 @@
 import { useSelector } from "react-redux";
 import { RootState } from "../../state/store";
 import { PDFDownloadLink } from "@react-pdf/renderer";
-import VehicleSummaryDocument from "../../reports/VehicleSummaryDocument";
+// import { getVehicleConfiguration } from '../../state/vehicleConfiguration/vehicleConfiguratonSlice';
+//import VehicleSummaryDocument from "../../reports/VehicleSummaryDocument";
 import "./ConfiguratorSummary.css";
 
-const ConfiguratorSummary: React.FC = () => {
+const ConfiguratorSummary = () => {
   const vehicleConfiguration = useSelector(
     (state: RootState) => state.vehicleConfiguration
   );
@@ -19,14 +20,14 @@ const ConfiguratorSummary: React.FC = () => {
         Please note that the displayed price does not include local taxes,
         import duties, or any other potential charges.
       </p>
-      <PDFDownloadLink
-        document={<VehicleSummaryDocument />}
+      {/* <PDFDownloadLink
+        document={<VehicleSummaryDocument vehicleConfiguration={}/>}
         fileName="vehicleSummary.pdf"
       >
         {({ blob, url, loading, error }) =>
           loading ? "Loading document..." : "Download specification report"
         }
-      </PDFDownloadLink>
+      </PDFDownloadLink> */}
     </div>
   );
 };
