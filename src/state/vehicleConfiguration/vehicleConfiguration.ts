@@ -5,7 +5,13 @@ class VehicleConfiguration {
   exteriorOptions: ExteriorOption[];
   totalCost: number;
 
-  constructor(color: Color, engine: Engine, interiorOptions: InteriorOption[], exteriorOptions: ExteriorOption[], totalCost: number) {
+  constructor(
+    color: Color,
+    engine: Engine,
+    interiorOptions: InteriorOption[],
+    exteriorOptions: ExteriorOption[],
+    totalCost: number
+  ) {
     this.color = color;
     this.engine = engine;
     this.interiorOptions = interiorOptions;
@@ -26,31 +32,19 @@ class VehicleConfigurationBase {
   }
 }
 
-class Engine extends VehicleConfigurationBase {
-  constructor(id: string, name: string, cost: number) {
-    super(id, name, cost);  
-  }
-};
-
 class Color extends VehicleConfigurationBase {
   fileName: string;
   constructor(id: string, name: string, cost: number, fileName: string) {
-    super(id, name, cost);  
+    super(id, name, cost);
     this.fileName = fileName;
   }
-};
+}
 
-class InteriorOption extends VehicleConfigurationBase {
-  constructor(id: string, name: string, cost: number) {
-    super(id, name, cost);  
-  }
-};
+class Engine extends VehicleConfigurationBase {}
 
-class ExteriorOption extends VehicleConfigurationBase {
-  constructor(id: string, name: string, cost: number) {
-    super(id, name, cost);  
-  }
-};
+class InteriorOption extends VehicleConfigurationBase {}
+
+class ExteriorOption extends VehicleConfigurationBase {}
 
 export type {
   VehicleConfiguration,
